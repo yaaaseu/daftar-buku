@@ -33,4 +33,12 @@
         <textarea id="sinopsis" name="sinopsis" rows="4"
                   class="w-full rounded-lg border border-slate-300 px-3 py-2">{{ old('sinopsis', $buku->sinopsis ?? '') }}</textarea>
     </div>
+    <div>
+    <label for="penerbit" class="block font-medium mb-1">Penerbit</label>
+    <input type="text" id="penerbit" name="penerbit" value="{{ old('penerbit', $buku->penerbit ?? '') }}"
+           class="w-full rounded-lg border px-3 py-2 @error('penerbit') border-red-500 @else border-slate-300 @enderror">
+    @error('penerbit')
+        <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+    @enderror
+    </div>
 </div>
