@@ -12,7 +12,6 @@
         </div>
 
         <div class="mt-8 flex gap-3">
-            <a href="{{ route('buku.edit', $buku) }}" class="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600">Ubah</a>
             <a href="{{ route('buku.index') }}" class="px-4 py-2 rounded-lg border border-slate-300 hover:bg-slate-50">← Kembali</a>
         </div>
     </div>

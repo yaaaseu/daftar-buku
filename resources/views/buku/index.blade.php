@@ -29,17 +29,18 @@
                 <p class="text-sm text-slate-600 mt-3 line-clamp-2">{{ $buku->sinopsis }}</p>
             @endif
 
-            <div class="mt-auto pt-4 flex gap-2">
-                <a href="{{ route('buku.edit', $buku) }}"
-                   class="px-3 py-1 rounded bg-amber-100 text-amber-800 hover:bg-amber-200">Ubah</a>
-
-                <form action="{{ route('buku.destroy', $buku) }}" method="POST"
-                      onsubmit="return confirm('Yakin hapus buku ini?')">
-                    @csrf
-                    @method('DELETE')
-                    <button class="px-3 py-1 rounded bg-red-100 text-red-700 hover:bg-red-200">Hapus</button>
-                </form>
-            </div>
+            @auth
+                <div class="mt-auto pt-4 flex gap-2">
+                    <a href="{{ route('buku.edit', $buku) }}"
+                    class="px-3 py-1 rounded bg-amber-100 text-amber-800 hover:bg-amber-200">Ubah</a>
+                    <form action="{{ route('buku.destroy', $buku) }}" method="POST"
+                        onsubmit="return confirm('Yakin hapus buku ini?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="px-3 py-1 rounded bg-red-100 text-red-700 hover:bg-red-200">Hapus</button>
+                    </form>
+                </div>
+            @endauth
         </div>
     @empty
         <div class="md:col-span-2 bg-white rounded-xl shadow px-4 py-8 text-center text-slate-500">
